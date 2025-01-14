@@ -1,5 +1,15 @@
-function addProblem(req, res) {
-    res.send('Add problem logic here');
+const NotImplemented = require("../errors/notImplemented.error");
+
+function addProblem(req, res, next) {
+
+    try{
+        //nothing implemented yet
+        throw new NotImplemented('addProblem');
+    }
+    catch(err){
+        next(err);
+    
+    }
 }
 
 function getProblem(req, res) {
