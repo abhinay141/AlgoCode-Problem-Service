@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { ProblemController } = require('../../../controllers/index'); //no need to add index.js as we are accessing it from index.js in routes/v1/index.js
+const { ProblemController } = require('../../controllers/index'); //no need to add index.js as we are accessing it from index.js in routes/v1/index.js
 
 const problemRouter = express.Router();
 
