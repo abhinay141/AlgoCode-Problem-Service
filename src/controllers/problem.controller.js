@@ -12,19 +12,19 @@ function addProblem(req, res, next) {
     }
 }
 
-function getProblem(req, res) {
+function getProblem(req, res, next) {
     res.send('Get single problem logic here');
 }
 
-function getProblems(req, res) {
+function getProblems(req, res, next) {
     res.send('Get all problems logic here');
 }
 
-function deleteProblem(req, res) {
+function deleteProblem(req, res, next) {
     res.send('Delete problem logic here');
 }
 
-function updateProblem(req, res) {
+function updateProblem(req, res, next) {
     res.send('Update problem logic here');
 }
 

@@ -20,6 +20,8 @@ app.get('/ping', (req, res) => {
     });
 });
 
+
+//last middleware function
 app.use(errorHandler);
 
 app.listen(PORT, () => {
