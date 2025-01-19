@@ -22,6 +22,35 @@ catch(err){
 }
 
 }
+
+async getAllProblems(){
+
+    try{
+        const problems = await Problem.find({});
+        return problems;
+    
+    }
+    catch(err){
+        console.log('Error getting problems');
+        throw err;
+    }
+    
+
+
+    }
+
+    async getProblemById(id){
+        try{
+            const problem = await Problem.findById(id);
+            return problem;
+        
+        }
+        catch(err){
+            console.log('Error getting problem by id');
+            throw err;
+        }
+    }
+    
 }
 
 module.exports = ProblemRepository;

@@ -21,6 +21,21 @@ async createProblem(problemData){
     }
 }
 
+async getAllProblems(){
+
+ const problems = await this.problemRepository.getAllProblems();
+    return problems; //no need of try catch block as any error thrown by repository will be sent to service and then to controller
+
+}
+
+async getProblemById(id){
+    const problem = await this.problemRepository.getProblemById(id);
+    return problem;
+}
+
+
+    
+
 
  
     

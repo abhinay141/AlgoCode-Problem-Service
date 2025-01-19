@@ -8,7 +8,7 @@ const convertedHtml = marked.parse(markdownContent);
 
 //2. remove all html tags from the html content
 const sanitizedHtml = sanitizeHtmlLibrary(convertedHtml, {
-    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags,
+    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags.concat([ 'img' ]), //allow img tags
     allowedAttributes: {}
 
   
