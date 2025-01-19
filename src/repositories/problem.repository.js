@@ -1,4 +1,5 @@
 const { Problem } = require('../models/index'); //importing the problem object we created above
+const NotFound = require('../errors/notfound.error');
 
 class ProblemRepository {
 
@@ -40,8 +41,12 @@ async getAllProblems(){
     }
 
     async getProblemById(id){
+
         try{
             const problem = await Problem.findById(id);
+            if(!problem){
+                throw new NotFound("Problem", id); //throws from repository to service and then to controller and then to error handler
+            }
             return problem;
         
         }
@@ -49,8 +54,7 @@ async getAllProblems(){
             console.log('Error getting problem by id');
             throw err;
         }
-    }
-    
+}
 }
 
 module.exports = ProblemRepository;
