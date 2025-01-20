@@ -33,6 +33,26 @@ async getProblemById(id){
     return problem;
 }
 
+async updateProblemById(id, problemData){
+    try{
+        const problem = await this.problemRepository.updateProblemById(id, problemData);
+        return problem;
+    }
+    catch(err){
+        throw err;
+    }
+}
+
+async deleteProblemById(id){
+    try{
+        const problem = await this.problemRepository.deleteProblemById(id);
+        return problem;
+    }
+    catch(err){
+        throw err;
+    }
+}
+
 
     
 

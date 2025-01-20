@@ -55,6 +55,40 @@ async getAllProblems(){
             throw err;
         }
 }
+async updateProblemById(id, problemData){
+
+    try{
+        const problem = await Problem.findByIdAndUpdate(id, problemData, {new: true, runValidators: true});
+        if(!problem){
+            throw new NotFound("Problem", id);
+        }
+        return problem;
+    
+    }
+    catch(err){
+        console.log('Error updating problem by id');
+        throw err;
+    }
+    
+    }
+
+    async deleteProblemById(id){
+
+        try{
+            const problem = await Problem.findByIdAndDelete(id);
+            if(!problem){
+                throw new NotFound("Problem", id);
+            }
+            return problem;
+        
+        }
+        catch(err){
+            console.log('Error deleting problem by id');
+            throw err;
+        }
+        
+        }
+        
 }
 
 module.exports = ProblemRepository;

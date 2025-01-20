@@ -71,10 +71,43 @@ function deleteProblem(req, res, next) {
     res.send('Delete problem logic here');
 }
 
-function updateProblem(req, res, next) {
-    res.send('Update problem logic here');
+async function updateProblem(req, res, next) {
+
+    try{
+        const updatedProblem = await problemService.updateProblemById(req.params.id, req.body);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            message: 'Problem updated successfully',
+            error : {},
+            data: updatedProblem
+
+        })
+        
+    }
+    catch(err){
+        next(err);
+    
+    }
 }
 
+async function deleteProblem(req, res, next) {
+
+    try{
+        const deletedProblem = await problemService.deleteProblemById(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            message: 'Problem deleted successfully',
+            error : {},
+            data: deletedProblem
+
+        })
+        
+    }
+    catch(err){
+        next(err);
+    
+    }
+}
 module.exports = {
     addProblem,
     getProblem,
