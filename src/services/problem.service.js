@@ -12,7 +12,8 @@ async createProblem(problemData){
    //sanitize the markdown content before saving it to the database
     problemData.description = sanitizeMarkdownContent(problemData.description);
 
-    const problem = await this.problemRepository.createProblem(problemData);
+    const problem = await this.problemRepository.createProblem(problemData); // this.problemRepository is the instance variable declared inside the constructor
+    
     return problem;
     }
     catch(err){
@@ -44,13 +45,9 @@ async updateProblemById(id, problemData){
 }
 
 async deleteProblemById(id){
-    try{
         const problem = await this.problemRepository.deleteProblemById(id);
         return problem;
-    }
-    catch(err){
-        throw err;
-    }
+   
 }
 
 
